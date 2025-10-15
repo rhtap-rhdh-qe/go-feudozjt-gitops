@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-feudozjt-gitops
+  description: This is GitOps manifest for go-feudozjt   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-feudozjt
+    backstage.io/kubernetes-id: go-feudozjt 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-feudozjt
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-feudozjt
